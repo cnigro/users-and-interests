@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+  <body>
+    <h2>Users<h2>
+    <div class="users">
+      <ul class="user-list">
+        <% @yaml.each do |key, value| %>
+          <li class="user">
+            <a href="/users/<%= key %>" class="user-link"> <%= key %></a>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </body>
+</html>

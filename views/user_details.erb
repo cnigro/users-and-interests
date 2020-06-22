@@ -1,0 +1,21 @@
+<h2><%= @user.capitalize %> Details<h2>
+  
+<div class="details">
+  <ul class="user-details">
+    <% @yaml[@user.to_sym].each do |key, value| %>
+      <li class="user-detail">
+        <%= "#{key}: #{value.is_a?(String) ? value : value.join(", ")}" %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+<div class="other-users">
+  <ul class="user-list">
+    <% @yaml.keys.select { |key| @user.to_sym != key }.each do |user| %>
+      <li><a href="/users/<%= user %>" class="user-link"> <%= user %></a></li>
+    <% end %>
+  </ul>
+</div>
+<footer>
+  <%= count_interests %>
+</footer>
